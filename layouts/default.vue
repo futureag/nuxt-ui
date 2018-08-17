@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar header has-shadow is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <a class="navbar-item" href="/nuxt-ui/">
           <img src="~assets/buefy.png" alt="Buefy" height="28">
         </a>
 
@@ -15,7 +15,7 @@
     </nav>
 
     <section class="main-content columns">
-  
+
       <aside class="column is-2 section">
         <p class="menu-label is-hidden-touch">General</p>
         <ul class="menu-list">
@@ -30,7 +30,7 @@
       <div class="container column is-10">
         <nuxt />
       </div>
-      
+
     </section>
   </div>
 </template>

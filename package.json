@@ -20,7 +20,7 @@
     "validate": "npm-run-all --parallel lint",
     "precommit": "npm run lint",
     "prepush": "npm run validate",
-    "deploy": "gh-pages --dist --dotfiles=true"
+    "deploy": "gh-pages --dist=dist --dotfiles=true"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
