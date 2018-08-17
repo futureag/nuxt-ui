@@ -1,5 +1,15 @@
 const pkg = require('./package');
 
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/nuxt-ui/'
+        }
+      }
+    : {};
+
 module.exports = {
   mode: 'universal',
 
@@ -55,11 +65,17 @@ module.exports = {
   env: {
     // issuerCdnUrl: process.env.ISSUER_CDN_URL || 'https://issuers-cdn.s3.amazonaws.com/securitize'
   },
+
+  /*
+  ** Router configuration for Github pages. TODO: remove on real deployment
+  */
+  ...routerBase,
   /*
   ** Build configuration
   */
   build: {
     extractCSS: true,
+    vendor: [ 'axios' ],
     /*
     ** You can extend webpack config here
     */
