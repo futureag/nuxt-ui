@@ -1,0 +1,87 @@
+@import "theme.scss";
+@import "variables.scss";
+
+@mixin mobile-low {
+  @media (max-width: #{$mobile-low-width}) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-width: #{$mobile-landscape-width}) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content
+  }
+}
+
+/* Gradients */
+@mixin gradient-light {
+  background: -moz-linear-gradient(to bottom, $color-white 0%, darken($color-white, 5%) 100%);
+  background: -webkit-linear-gradient(to bottom, $color-white 0%, darken($color-white, 5%) 100%);
+  background: linear-gradient(to bottom, $color-white 0%, darken($color-white, 5%) 100%);
+}
+@mixin gradient-light-hover{
+  background: -moz-linear-gradient(to bottom, $color-white 0%, darken($color-white, 8%) 100%);
+  background: -webkit-linear-gradient(to bottom, $color-white 0%, darken($color-white, 8%) 100%);
+  background: linear-gradient(to bottom, $color-white 0%, darken($color-white, 8%) 100%);
+}
+
+
+@mixin gradient-green {
+  background: -moz-linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 8%) 100%);;
+  background: -webkit-linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 8%) 100%);;
+  background: linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 8%) 100%);;
+}
+
+@mixin gradient-green-hover {
+  background: -moz-linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 12%) 100%);
+  background: -webkit-linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 12%) 100%);
+  background: linear-gradient(to bottom, $color-sub 0%, darken($color-sub, 12%) 100%);
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin transition($property: all, $duration: .3s, $ease: linear){
+  -webkit-transition: $property $duration $ease;
+  -moz-transition: $property $duration $ease;
+  -o-transition: $property $duration $ease;
+  transition: $property $duration $ease;
+}
+
+@mixin transform($value){
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  transform: $value;
+}
+
+@mixin animation($property: rotate(360deg), $duration: 1s, $times: infinite, $ease: linear) {
+  webkit-animation: $property $duration $times $ease;
+  -moz-animation: $property $duration $times $ease;
+  animation: $property $duration $times $ease;
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+}

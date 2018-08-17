@@ -1,0 +1,21 @@
+build/
+node_modules/
+test/integration/screenshots-current
+yarn.lock
+.DS_Store
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# IDE
+.idea
+
+# PWA
+sw.*
+
