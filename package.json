@@ -30,7 +30,7 @@
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "nuxt": "^1.4.0",
-    "nuxt-buefy": "^0.0.4",
+    "nuxt-buefy": "^0.1.0",
     "nuxt-logger": "^0.2.0",
     "sass-loader": "^6.0.7"
   },
