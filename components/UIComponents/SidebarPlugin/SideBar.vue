@@ -44,7 +44,7 @@
     props: {
       title: {
         type: String,
-        default: 'Vue Paper Dashboard'
+        default: 'MVP UI'
       },
       type: {
         type: String,
