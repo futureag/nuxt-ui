@@ -1,8 +1,5 @@
-build/
-node_modules/
-test/integration/screenshots-current
-yarn.lock
-.DS_Store
+# dependencies
+node_modules
 
 # logs
 npm-debug.log
@@ -11,11 +8,4 @@ npm-debug.log
 .nuxt
 
 # Nuxt generate
-# dist
-
-# IDE
-.idea
-
-# PWA
-sw.*
-
+dist

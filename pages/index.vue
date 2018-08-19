@@ -1,50 +1,139 @@
 <template lang="pug">
 //- Login
-.content-wrapper
-  section.bg-light.hero.is-fullheight#top-section
-    .container.section
-      .content.has-text-centered
-        h1 MVP UI
-  section.bg-white.hero.is-fullheight
-    .container.section
-      .content.has-text-centered
-        h1 LANDING PAGE SECOND SECTION
-  section.bg-light.hero.is-fullheight
-    .container.section
-      .content.has-text-centered
-        h1 LANDING PAGE THIRD SECTION
-  section#stn-download
-    .container.section.has-text-centered
-      .columns
-        .column.is-half.is-offset-one-quarter
-          h1.title.is-2 Some other info
-          p Lorem ipsum dolor sit amet, consectetur adipisicing elit..
-          a.button.button-store(href='#') Link1
-          a.button.button-store(href='#') Lin2
-  footer.footer
+div
+  nav.navbar.navbar-default.navbar-fixed-top(role="navigation", aria-label="main navigation")
     .container
-      .content.has-text-centered
-        p
-          a(href='#') © MVP
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#', v-scroll-to="'#home'") Brand
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li(v-scroll-to="'#home'")
+            a(href='#') Home
+          li(v-scroll-to="'#about'")
+            a(href='#') About
+          li(v-scroll-to="'#something'")
+            a(href='#') Something
+          li(v-scroll-to="'#something2'")
+            a(href='#') Something2
+          li
+            nuxt-link(to='/dashboard') Dashboard
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#') Login
+
+
+  section.intro#home
+    .content.text-center
+      h1 MVP
+  section#about
+    .content.text-center
+      h1 About
+  section#something
+    .content.text-center
+      h1 Something
+  section#something2
+    .content.text-center
+      h1 Something2
+  footer
+    a(href='#') @futureAGmvp
+
 </template>
 
 <script>
 import Vue from 'vue'
-var VueScrollactive = require('vue-scrollactive');
-Vue.use(VueScrollactive);
-import Login from '@/components/Login'
+const VueScrollTo = require('vue-scrollto')
+Vue.use(VueScrollTo)
 
 export default {
   name: 'HomePage',
-  components: {Login},
+  // components: {Modal},
   data() {
       return {}
   }
 }
 </script>
 <style lang="scss" scoped>
+* {
+  box-sizing: border-box;
+}
 
-#top-section {
+body {
+  margin: 0;
+  font-weight: 500;
+  font-family: 'HelveticaNeue';
+}
+
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  background-color: #373B44;
+  height: 100vh;
+
+  &:nth-of-type(2n) {
+    background-color: #FE4B74;
+  }
+}
+
+.intro {
+  height: 100vh;
+}
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 3em;
+  display: block;
+  color: white;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #C3CAD9;
+}
+
+a {
+  font-weight: 700;
+  color: #373B44;
+  position: relative;
+
+  &:hover{
+    opacity: 0.8;
+  }
+
+  &:active {
+    top: 1px;
+  }
+}
+
+footer {
+  padding: 1% 5%;
+  text-align:center;
+  background-color: #373B44;
+  color: white;
+
+  a {
+    color: #FE4B74;
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
+
+#home {
   background: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
@@ -53,103 +142,6 @@ export default {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  h1 {
-    color: white;
-    font-size: 15rem;
-    margin-top: 8rem;
-  }
-}
-
-.hero.is-large .hero-body {
-    padding-bottom: 0;
-    padding-top: 10rem;
-}
-.hero figure {
-    height: 0;
-    padding-bottom: 75%;
-    overflow: hidden;
-}
-figure.image {
-    padding-left: 50px;
-    padding-right: 50px;
-}
-.bg-white {
-    background-color: #ffffff;
-}
-.bg-light {
-    background-color: #faf6fb;
-}
-.media-left {
-    padding-left: 15px;
-}
-.media-left .icon {
-    margin-top: 15px;
-
-}
-
-.media-content {
-    padding-left: 25px;
-}
-
-.media {
-    background-color: #ffffff;
-    padding: 25px;
-}
-
-.section {
-    padding: 7rem 5rem;
-}
-
-.content h1 {
-    margin-bottom: 2em;
-}
-
-#stn-download {
-    color: #ffffff;
-    background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-}
-
-.hero.is-landing {
-    color: #ffffff;
-    background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-}
-
-.hero.is-landing * {
-    color: #ffffff;
-}
-
-#stn-download h1 {
-    color: #ffffff;
-}
-
-.button.button-store {
-    border-radius: 3px;
-    background: #FFF;
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.26);
-    font-size: 14px;
-    font-weight: 500;
-    color: #633991;
-    margin: 0.5rem;
-    padding: 0.7rem 1.6rem;
-    line-height: 1.8;
-    height: auto;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-}
-
-.button.button-store:hover {
-    color: #000000;
-    background-color: #faf6fb;
-}
-
-.button.button-store img {
-    margin-right: 0.4rem;
-    vertical-align: text-bottom;
 }
 </style>
 
