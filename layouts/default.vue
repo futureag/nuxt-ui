@@ -1,39 +1,59 @@
 <template lang='pug'>
-section.hero.is-info.is-fullheight
-  .hero-head
-    nav.navbar
-      .container
-        .navbar-brand
-          a.navbar-item(href='../') MVP UI
-            //- img(src='http://bulma.io/images/bulma-type-white.png', alt='Logo')
+.container.is-fluid.is-marginless.is-paddingless
+  section.hero.is-landing.is-large
+    .hero-head
+      nav.navbar.is-fixed-top
+        .container
+          .navbar-brand
+            a.navbar-item
+            span.navbar-burger.burger(data-target='mainNavbar')
+              span
+              span
+              span
+          #mainNavbar.navbar-menu
+            .navbar-end
+              a.navbar-item
+              a.navbar-item
+              span.navbar-item
+                //- a.button.is-info.is-inverted.is-outlined
+                a.button.is-info.is-inverted
+                  span Login
+  nuxt
+//- section.hero.is-info.is-fullheight
+//-   .hero-head
+//-     nav.navbar
+//-       .container
+//-         .navbar-brand
+//-           a.navbar-item(href='../') MVP UI
+//-             //- img(src='http://bulma.io/images/bulma-type-white.png', alt='Logo')
 
-          span.navbar-burger.burger(data-target='navbarMenu')
-            span
-            span
-            span
-        #navbarMenu.navbar-menu
-          .navbar-end
-            //- span.navbar-item
-            //-   a.button.is-white.is-outlined(href='#')
-            //-     span.icon
-            //-       b-icon(icon='home')
-            //-     span Home
-            //- span.navbar-item
-            //-   a.button.is-white.is-outlined(href='#')
-            //-     span.icon
-            //-       b-icon(icon='superpowers')
-            //-     span Examples
-            //- span.navbar-item
-            //-   a.button.is-white.is-outlined(href='#')
-            //-     span.icon
-            //-       b-icon(icon='book')
-            //-     span Documentation
-            span.navbar-item
-              a.button.is-white.is-outlined(href='#')
-                span.icon
-                  b-icon(icon='account')
-                span Login
-  .container
+//-           span.navbar-burger.burger(data-target='navbarMenu')
+//-             span
+//-             span
+//-             span
+//-         #navbarMenu.navbar-menu
+//-           .navbar-end
+//-             //- span.navbar-item
+//-             //-   a.button.is-white.is-outlined(href='#')
+//-             //-     span.icon
+//-             //-       b-icon(icon='home')
+//-             //-     span Home
+//-             //- span.navbar-item
+//-             //-   a.button.is-white.is-outlined(href='#')
+//-             //-     span.icon
+//-             //-       b-icon(icon='superpowers')
+//-             //-     span Examples
+//-             //- span.navbar-item
+//-             //-   a.button.is-white.is-outlined(href='#')
+//-             //-     span.icon
+//-             //-       b-icon(icon='book')
+//-             //-     span Documentation
+//-             span.navbar-item
+//-               a.button.is-white.is-outlined(href='#')
+//-                 span.icon
+//-                   b-icon(icon='account')
+//-                 span Login
+//-   .container
     nuxt
     //- .container.has-text-centered
     //-   .column.is-6.is-offset-3
