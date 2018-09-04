@@ -1,4 +1,5 @@
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-ui/' : '/';
+const nodeExternals = require('webpack-node-externals');
 module.exports = {
   /*
   ** Headers of the page
@@ -38,14 +39,15 @@ module.exports = {
     { src: '~/plugins/dashboard' },
     { src: '~/plugins/globalComponents' },
     { src: '~/plugins/globalDirectives' },
-    { src: '~/plugins/charts', ssr: false }
+    { src: '~/plugins/charts', ssr: false },
+    { src: '@/plugins/echarts.js', ssr: false }
   ],
-  modules: [ '@nuxtjs/axios', 'nuxt-logger' ],
+  modules: [ '@nuxtjs/axios', 'nuxt-logger', 'nuxt-pouch' ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
     // credentials: true,
     // baseURL: 'http://localhost:3001/api/v1',
-    // baseURL: process.env.BASE_URL || 'http://localhost:3001/api/v1',
+    // baseURL: process.env.BASE_URL || 'http://localhost:5984/todos'
     // redirectError: {
     //   401: '/login'
     // }
@@ -67,7 +69,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
+    extend(config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -75,6 +77,15 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         });
+      }
+      if (isServer) {
+        config.externals = [
+          nodeExternals({
+            // default value for `whitelist` is
+            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
+            whitelist: [ /es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-echarts/ ]
+          })
+        ];
       }
     }
   }

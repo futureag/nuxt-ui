@@ -9,6 +9,10 @@
           <i class="ti-panel"></i>
           <p>Dashboard</p>
         </sidebar-link>
+        <sidebar-link to="/charts">
+          <i class="ti-bar-chart-alt"></i>
+          <p>Charts</p>
+        </sidebar-link>
         <sidebar-link to="/userprofile">
           <i class="ti-user"></i>
           <p>User Profile</p>
